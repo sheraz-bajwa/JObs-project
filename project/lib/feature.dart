@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
-class CustomDropDownWidget extends StatefulWidget {
-  const CustomDropDownWidget({Key? key}) : super(key: key);
+class CustomDropDownWidget1 extends StatefulWidget {
+  const CustomDropDownWidget1({Key? key}) : super(key: key);
 
   @override
-  State<CustomDropDownWidget> createState() => _CustomDropDownWidgetState();
+  State<CustomDropDownWidget1> createState() => _CustomDropDownWidget1State();
 }
 
-class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
+class _CustomDropDownWidget1State extends State<CustomDropDownWidget1> {
   bool isExpanded = false;
-  String selectedValue = 'Platform';
+  String selectedValue = 'Feature';
 
   //list that will be expanded
   List<String> politicsList = [
-    'PS5',
-    'PS4',
-    'Nintendo',
+    'Single player',
+    'Multiplayer',
+    'Co-op',
+    'CrosPlayer',
   ];
 
   @override
@@ -65,7 +66,8 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
                                     boxShadow: [
                                       BoxShadow(
                                           blurRadius: 15,
-                                          color: Colors.white,
+                                          color: Color.fromARGB(
+                                              255, 253, 255, 161),
                                           spreadRadius: -3)
                                     ],
                                   ),
