@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:project/bottomNavigationBar.dart';
+import 'package:project/filter.dart';
+import 'package:icony/icony.dart';
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -12,9 +14,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 7, 14, 33),
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 7, 14, 33),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
@@ -31,7 +30,12 @@ class _HomeState extends State<Home> {
                       fontSize: 40),
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Filter()),
+                      );
+                    },
                     child: Text(
                       'Filter',
                       style: TextStyle(
@@ -72,9 +76,14 @@ class _HomeState extends State<Home> {
                 return null;
               },
             ),
+            CustomBottomNavigationBar(
+              currentIndex: 1,
+              onTap: (int) {},
+            )
           ],
         ),
       ),
+     
     );
   }
 }

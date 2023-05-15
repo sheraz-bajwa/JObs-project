@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/dropdown.dart';
 import 'package:project/feature.dart';
+import 'package:project/home.dart';
 
 class Filter extends StatefulWidget {
   const Filter({super.key});
@@ -13,25 +14,32 @@ class _FilterState extends State<Filter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 7, 14, 33),
-        elevation: 0,
-      ),
       backgroundColor: Color.fromARGB(255, 7, 14, 33),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    'assets/left-arrow.png',
-                    height: 35,
-                    width: 35,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Home()),
+                      );
+                    },
+                    child: Image.asset(
+                      'assets/left-arrow.png',
+                      height: 35,
+                      width: 35,
+                    ),
                   ),
                   SizedBox(
                     width: 20,
