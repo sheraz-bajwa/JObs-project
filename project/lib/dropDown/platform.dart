@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icony/icony_ikonate.dart';
 
 class CustomDropDownWidget extends StatefulWidget {
   const CustomDropDownWidget({Key? key}) : super(key: key);
@@ -65,12 +66,17 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
                                     boxShadow: [
                                       BoxShadow(
                                           blurRadius: 15,
-                                          color: Colors.white,
+                                          color: Color.fromARGB(255, 5, 0, 78),
                                           spreadRadius: -3)
                                     ],
                                   ),
                                   child: CircleAvatar(
                                     backgroundColor: Colors.transparent,
+                                    child: Ikonate(
+                                      Ikonate.wallpaper,
+                                      color: Colors.amber,
+                                      height: 40,
+                                    ),
                                     //radius: 30.0,
                                   ),
                                 ),
@@ -79,9 +85,10 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
                                 ),
                                 Text(selectedValue,
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 23,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w400)),
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: .5)),
                               ],
                             )),
                             Icon(

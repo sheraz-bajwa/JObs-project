@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icony/icony_ikonate.dart';
 
 class CustomDropDownWidget2 extends StatefulWidget {
   const CustomDropDownWidget2({Key? key}) : super(key: key);
@@ -9,13 +10,17 @@ class CustomDropDownWidget2 extends StatefulWidget {
 
 class _CustomDropDownWidget2State extends State<CustomDropDownWidget2> {
   bool isExpanded = false;
-  String selectedValue = 'Platform';
+  String selectedValue = 'Generes';
 
   //list that will be expanded
   List<String> politicsList = [
-    'PS5',
-    'PS4',
-    'Nintendo',
+    'Action',
+    'Arcade',
+    'Fighting',
+    'Horror',
+    'Kids & Family',
+    'Party,Music & Dance',
+    'Platform',
   ];
 
   @override
@@ -65,12 +70,19 @@ class _CustomDropDownWidget2State extends State<CustomDropDownWidget2> {
                                     boxShadow: [
                                       BoxShadow(
                                           blurRadius: 15,
-                                          color: Colors.white,
+                                          color: Color.fromARGB(
+                                              255, 204, 203, 203),
                                           spreadRadius: -3)
                                     ],
                                   ),
                                   child: CircleAvatar(
                                     backgroundColor: Colors.transparent,
+
+                                    child: Ikonate(
+                                      Ikonate.add_to_list,
+                                      color: Colors.white,
+                                      height: 40,
+                                    ),
                                     //radius: 30.0,
                                   ),
                                 ),
@@ -79,9 +91,10 @@ class _CustomDropDownWidget2State extends State<CustomDropDownWidget2> {
                                 ),
                                 Text(selectedValue,
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 23,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w400)),
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: .5)),
                               ],
                             )),
                             Icon(
@@ -128,14 +141,11 @@ class _CustomDropDownWidget2State extends State<CustomDropDownWidget2> {
                                     width: double.infinity,
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(e.toString(),
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w400)),
-                                      ),
+                                      child: Text(e.toString(),
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400)),
                                     )),
                               ],
                             ),

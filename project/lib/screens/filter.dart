@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/bottomNavigationBar.dart';
+import 'package:project/dropDown/Generes.dart';
 import 'package:project/dropDown/platform.dart';
 import 'package:project/dropDown/feature.dart';
 import 'package:project/screens/home.dart';
@@ -68,7 +69,7 @@ class _FilterState extends State<Filter> {
                   SizedBox(
                     height: 20,
                   ),
-                  CustomDropDownWidget(),
+                  CustomDropDownWidget2(),
                 ],
               ),
             ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:icony/icony_gameicons.dart';
+import 'package:icony/icony_ikonate.dart';
 import 'package:project/bottomNavigationBar.dart';
 import 'package:icony/icony.dart';
 import 'package:project/screens/filter.dart';
@@ -80,6 +82,7 @@ class _HomeState extends State<Home> {
                     return null;
                   },
                 ),
+                GameIcons(GameIcons.battery_75),
               ],
             ),
             Align(
