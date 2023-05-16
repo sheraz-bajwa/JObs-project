@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/dropdown.dart';
-import 'package:project/filter.dart';
-import 'package:project/home.dart';
+import 'package:project/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
