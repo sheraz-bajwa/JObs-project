@@ -15,24 +15,22 @@ class _GenerState extends State<Gener> {
     StateServices stateservices = StateServices();
 
     return Scaffold(
-      body: FutureBuilder(
-          future: stateservices.GenereRecord(),
-          builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-            if (snapshot.hasData) {
-              return Text(
-                'loading',
-                style: TextStyle(color: Colors.black, fontSize: 30),
-              );
-            } else {
-              return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [Text('data')],
-                    );
-                  });
-            }
-          }),
+      body: Center(
+        child: FutureBuilder(
+            future: stateservices.GenereRecord(),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                // Handle the error condition
+                return Text('Error fetching genres: ${snapshot.error}');
+              } else {
+                return Text('no Data',
+                    style: TextStyle(color: Colors.black, fontSize: 30));
+              }
+            }),
+      ),
     );
   }
 }

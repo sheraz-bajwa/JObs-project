@@ -8,8 +8,8 @@ import 'package:project/services/APP_URL.dart';
 import 'package:project/services/methood.dart';
 
 class StateServices {
-  Future<void> fetchGenres() async {
-  var url = Uri.parse('https://api.gamestack.com.pk/genres');
+  Future fetchGenres() async {
+  var url = Uri.parse("https://api.gamestack.com.pk/genres");
 
   try {
     var response = await http.get(url);
@@ -32,7 +32,8 @@ class StateServices {
 
   
   
-  Future<List<dynamic>> GenereRecord() async {
+  // ignore: non_constant_identifier_names
+  Future<List<String>> GenereRecord() async {
     var data;
 
     final response = await http.get(Uri.parse(AppUrl.Gener));
