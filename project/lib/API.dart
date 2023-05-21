@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
 import 'package:project/services/Gener.dart';
 import 'package:project/services/methood.dart';
@@ -16,21 +19,31 @@ class _GenerState extends State<Gener> {
 
     return Scaffold(
       body: Center(
-        child: FutureBuilder(
-            future: stateservices.GenereRecord(),
-            builder:
-                (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                // Handle the error condition
-                return Text('Error fetching genres: ${snapshot.error}');
-              } else {
-                return Text('no Data',
-                    style: TextStyle(color: Colors.black, fontSize: 30));
-              }
-            }),
-      ),
+          child: FutureBuilder<List<dynamic>>(
+        future: stateservices.fetchGenres5(),
+        builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+          if
+              // (snapshot.connectionState == ConnectionState.waiting) {
+              //   return CircularProgressIndicator();
+              // } else if
+              (snapshot.hasError) {
+            // Handle the error condition
+            return Text('Error fetching genres: ${snapshot.error}');
+          } else if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(snapshot.data![index]['data']),
+                  // Add additional widgets to display more information
+                );
+              },
+            );
+          } else {
+            return Text('No data available');
+          }
+        },
+      )),
     );
   }
 }

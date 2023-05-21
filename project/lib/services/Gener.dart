@@ -8,35 +8,12 @@ import 'package:project/services/APP_URL.dart';
 import 'package:project/services/methood.dart';
 
 class StateServices {
-  Future fetchGenres() async {
-  var url = Uri.parse("https://api.gamestack.com.pk/genres");
 
-  try {
-    var response = await http.get(url);
-
-    if (response.statusCode == 200) {
-      // Request successful, parse the response
-      var jsonResponse = json.decode(response.body);
-      // Process the data as needed
-      List<dynamic> genres = jsonResponse['genres'];
-      print(genres);
-    } else {
-      // Request failed, handle the error
-      print('Request failed with status: ${response.statusCode}');
-    }
-  } catch (e) {
-    // Handle any exceptions thrown during the request
-    print('Error: $e');
-  }
-}
-
-  
-  
   // ignore: non_constant_identifier_names
   Future<List<String>> GenereRecord() async {
     var data;
-
-    final response = await http.get(Uri.parse(AppUrl.Gener));
+    var url = Uri.parse('https://api.gamestack.com.pk/genres');
+    final response = await http.get(url);
 
     if (response.statusCode == 200) {
       data = jsonDecode(response.body);
@@ -46,4 +23,26 @@ class StateServices {
       throw Exception('Error loding filr');
     }
   }
+
+
+Future<List<dynamic>> fetchGenres5() async {
+  var url = Uri.parse('https://api.gamestack.com.pk/genres');
+
+  try {
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      var jsonResponse = json.decode(response.body);
+      List<dynamic> genres = jsonResponse['result']['data'];
+      return genres;
+    } else {
+      throw Exception('Request failed with status: ${response.statusCode}');
+    }
+  } catch (e) {
+    throw Exception('Error: $e');
+  }
+}
+
+
+
 }
