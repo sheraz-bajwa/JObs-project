@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:project/services/Gener.dart';
+import 'package:project/services/StateServices.dart';
 import 'package:project/services/methood.dart';
 
 class Gener extends StatefulWidget {
@@ -34,7 +34,8 @@ class _GenerState extends State<Gener> {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(snapshot.data![index]['data']),
+                  title: Text(snapshot.data![index]['title']),
+                  subtitle: Text(snapshot.data![index]['_id']),
                   // Add additional widgets to display more information
                 );
               },

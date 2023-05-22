@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/API.dart';
+import 'package:project/generesdata.dart';
+import 'package:project/platfromData.dart';
+import 'package:project/regionData.dart';
 import 'package:project/screens/home.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Gener(),
+      home: platform(),
     );
   }
 }
